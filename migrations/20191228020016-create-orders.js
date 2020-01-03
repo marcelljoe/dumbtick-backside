@@ -10,13 +10,13 @@ module.exports = {
       },
       buyer_id: {
         type: Sequelize.INTEGER,
-        allowNull:false,
+        allowNull: false,
         references: {
-          model: 'users',
-          key: 'id'
+          model: "users",
+          key: "id"
         },
-        onUpdate: 'cascade',
-        onDelete: 'cascade',
+        onUpdate: "cascade",
+        onDelete: "cascade"
       },
       event_id: {
         type: Sequelize.INTEGER,
@@ -42,11 +42,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: true,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updatedAt: {
         allowNull: true,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       }
     });
   },
