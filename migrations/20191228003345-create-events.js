@@ -24,13 +24,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
       },
       address: {
         type: Sequelize.STRING
       },
       urlMaps: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       img: {
         type: Sequelize.STRING

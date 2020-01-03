@@ -6,9 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     startTime: DataTypes.DATE,
     endTime: DataTypes.DATE,
     price: DataTypes.STRING,
-    description: DataTypes.TEXT,
+    description: DataTypes.STRING,
     address: DataTypes.STRING,
-    urlMaps: DataTypes.STRING,
+    urlMaps: DataTypes.TEXT,
     img: DataTypes.STRING,
     createdBy_id: DataTypes.INTEGER
   }, {});
