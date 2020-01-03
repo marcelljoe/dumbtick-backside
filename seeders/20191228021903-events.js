@@ -61,8 +61,10 @@ module.exports = {
             price: "180000",
             description: "Ini description untuk Dugem World Project",
             address: "jl. Pancoran",
-            urlMaps: "inilinkmap",
-            img: "iniimage.png",
+            urlMaps:
+              "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7931.828278429471!2d106.72135417850288!3d-6.2750194514481255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fa6255555555%3A0x83f994af5841af4f!2sCinema%20XXI%20Lotte%20Mall!5e0!3m2!1sen!2sid!4v1577791185118!5m2!1sen!2sid' width='400' height='300' frameborder='0' style={{alignSelf: 'center'}} ></iframe>",
+            img:
+              "https://mmc.tirto.id/image/2019/12/11/poster--dwp_ratio-16x9.jpg",
             createdBy_id: 1
           },
           {
