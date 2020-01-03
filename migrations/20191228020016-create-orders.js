@@ -23,10 +23,10 @@ module.exports = {
         allowNull: false,
         references: {
           model: "events",
-          key = "id"
+          key: "id"
         },
         onUpdate: "cascade",
-        onDelete : "cascade"
+        onDelete: "cascade"
       },
       quantity: {
         type: Sequelize.INTEGER
