@@ -2,7 +2,7 @@ const models = require("../models");
 const categories = models.categories;
 
 exports.showAll = (req, res) => {
-  categories.findAll({}).then(categories => res.send(categories));
+  categories.findAll().then(categories => res.send(categories));
 };
 
 exports.showOne = (req, res) => {
