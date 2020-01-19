@@ -1,49 +1,49 @@
 const jwt = require("jsonwebtoken");
-
 const models = require("../models");
 const users = models.users;
+const { Op } = require("sequelize");
+const hash = require("password-hash");
+
 
 
 exports.register = (req, res) => {
-  //check if email and pass match in db tbl user
-  users.create(req.body).then(users => {
-      const token = jwt.sign({ id: users.id }, "ThisIsTheToken");
-      const username = users.username;
-      const id = users.id;
-      const name = users.name
-      res.send({
-        message: "success",
-        username,
-        id,
-        name,
-        token
-      });
-  });
-};
-
-exports.register2 = (req, res) => {
-  const email = req.body.email;
   users
-    .findOne({ where: { email } })
+    .findOne({
+      where: {username: req.body.username}
+    })
     .then(users => {
       if (users) {
-        res.send({
-          error: true,
-          message: "Email already registered! Login instead."
-        });
+        res
+          .send({
+            error: true,
+            message:
+              "This username has been registered. Choose another username."
+          })
+          .catch(err => res.send(err));
       } else {
-        users
-        .create(req.body).then(users => {
-        
-          const email = users.email;
-          const name = users.fullname;
+        models.users.create({
+        name: req.body.name,
+        phoneNumber: req.body.phoneNumber,
+        email:req.body.email,
+        username: req.body.username,
+        password: hash.generate(req.body.password),
+        img: req.body.img,
+        createdAt: Date.now(),
+        updatedAt: Date.now()
+        })
+        .then(users => {
+          const token = jwt.sign({ id: users.id }, "ThisIsTheToken");
+          const username = users.username;
+          const id = users.id;
+          const name = users.name;
           res.send({
-            users,
-            email,
-            name
+            message: "success",
+            username,
+            id,
+            name,
+            token
           });
-        });
+        });        
       }
-    })
-    .catch(err => res.send(err));
-}
+    });
+};

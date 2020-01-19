@@ -27,7 +27,7 @@ module.exports = {
             address: "jl. raya",
             urlMaps: "inilinkmap",
             img: "iniimage.png",
-            createdBy_id: 2
+            createdBy_id: 1
           },
           {
             title: "Dumbways.ID Batch #93",
@@ -51,7 +51,7 @@ module.exports = {
             address: "jl. Udara",
             urlMaps: "inilinkmap",
             img: "iniimage.png",
-            createdBy_id: 2
+            createdBy_id: 1
           },
           {
             title: "Djakarta Warehouse Project",

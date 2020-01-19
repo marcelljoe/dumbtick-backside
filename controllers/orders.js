@@ -2,7 +2,7 @@ const models = require("../models");
 const orders = models.orders;
 const users = models.users;
 const events = models.events;
-
+const { Op } = require("sequelize");
 
 
 exports.buy = (req, res) => {
@@ -12,26 +12,6 @@ exports.buy = (req, res) => {
     });
   });
 };
-
-exports.showByBuyer = (req, res) => {
-    const buyer_id = req.body.buyer_id;
-    orders
-    .findAll({
-        include: [
-        {
-            model: events,
-            as: "event"
-        },
-        {
-            model: users,
-            as: "user"
-        }
-        ],
-        where: {buyer_id, status: "Booked"}
-    })
-    .then(orders => res.send(orders));
-};
-
 
 exports.showConfirmed = (req, res) => {
   const buyer_id = req.body.buyer_id;
@@ -48,6 +28,27 @@ exports.showConfirmed = (req, res) => {
         }
       ],
       where: { buyer_id, status: "Confirmed" }
+    })
+    .then(orders => res.send(orders));
+};
+
+
+exports.showPending = (req, res) => {
+  const buyer_id = req.body.buyer_id;
+  orders
+    .findAll({
+      include: [
+        {
+          model: events,
+          as: "event"
+        },
+        {
+          model: users,
+          as: "user"
+        }
+      ],
+      where: { buyer_id, 
+        status: {[Op.or]: ["Booked", "Pending"]} }
     })
     .then(orders => res.send(orders));
 };

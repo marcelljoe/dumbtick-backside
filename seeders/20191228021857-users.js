@@ -12,14 +12,6 @@ module.exports = {
             username: "marcelljoe",
             password: "marcelljoe",
             img: "myface.png"
-          },
-          {
-            name: "Michelle Prcl",
-            phoneNumber: "08123456789",
-            email: "mcp@gmail.com",
-            username: "chelle",
-            password: "chelle",
-            img: "myface.png"
           }
         ],
         {}

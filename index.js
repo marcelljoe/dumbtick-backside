@@ -9,7 +9,7 @@ const cors = require('cors')
 //init bodyparser
 const bodyParser = require("body-parser");
 //define the server port
-const port = process.env.PORT || 7000;
+const port = 7000;
 
 const CategoryController = require("./controllers/categories");
 const UserController = require("./controllers/users");
@@ -50,12 +50,16 @@ app.group("/dumbtick", router => {
 
   //Buy things
   router.post("/buy", OrderController.buy);
-  router.post("/paymentpending", OrderController.showByBuyer);
+  router.post("/paymentpending", OrderController.showPending);  
   router.post("/paymentconfirmed", OrderController.showConfirmed);
   router.put("/pay/:id", OrderController.pay);
 
   //Favorites
   router.get("/profile/:id/favorites", FavsController.showAll);
+  router.post("/favorites", FavsController.ShowIsFavorited);
+  router.post("/dropfavorite", FavsController.deleteFav);
+  router.post("/addfavorite", FavsController.addFav);
+
   
   //UserControl
   router.get("/profile/:id", UserController.showOne);
