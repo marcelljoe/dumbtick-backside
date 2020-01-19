@@ -9,7 +9,7 @@ const cors = require('cors')
 //init bodyparser
 const bodyParser = require("body-parser");
 //define the server port
-const port = 7000;
+const port = process.env.PORT || 7000;
 
 const CategoryController = require("./controllers/categories");
 const UserController = require("./controllers/users");
