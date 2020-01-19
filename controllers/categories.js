@@ -19,3 +19,26 @@ exports.insert = (req, res) => {
     });
   });
 };
+
+
+exports.delete = (req, res) => {
+  categories
+    .destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(categories => {
+      if (categories == 1) {
+        res.send({
+          categories,
+          isDestroyed: true,
+          isFav: false
+        });
+      } else {
+        res.send({
+          isDestroyed: false
+        });
+      }
+    });
+};
