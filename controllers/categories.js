@@ -20,6 +20,22 @@ exports.insert = (req, res) => {
   });
 };
 
+exports.update = (req, res) => {
+  categories.update(
+      {
+          name: req.body.name,
+          img: req.body.img
+      },
+      {
+      where: {id: req.params.id}
+  }
+  ).then(categories => {
+      res.send({
+          message: "success",
+          categories
+      })
+  })
+} 
 
 exports.delete = (req, res) => {
   categories
