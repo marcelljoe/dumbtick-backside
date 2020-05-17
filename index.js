@@ -38,6 +38,7 @@ app.group("/dumbtick", router => {
   router.get("/categories", CategoryController.showAll);
   router.get("/category/:id", CategoryController.showOne);
   router.post("/category", CategoryController.insert);
+  router.post("/category/:id", CategoryController.update);
   router.post("/deletecategory", CategoryController.delete);
   
   //Events
